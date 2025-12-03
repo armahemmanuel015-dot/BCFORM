@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JIP Conference 2025 Registration Form</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+    }
+    .form-container {
+      max-width: 720px;
+      margin: 30px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+    label {
+      font-weight: bold;
+      color: #111827;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background: #f9fafb;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f2937;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>JIP Business Conference 2025 Registration</h2>
+
+    <form id="jipForm">
+      <label>Full Name</label>
+      <input type="text" name="Full Name" required />
+
+      <label>Email Address</label>
+      <input type="email" name="Email Address" required />
+
+      <label>Phone Number</label>
+      <input type="tel" name="Phone Number" required />
+
+      <label>Name of Organization / Institution / Company</label>
+      <input type="text" name="Organization" />
+
+      <label>Job Title / Role (Eg: Chief Executive Officer)</label>
+      <input type="text" name="Job Title" />
+
+      <label>Upload your official portrait</label>
+      <input type="file" name="Portrait" accept="image/*" required />
+
+      <label>Which industry or sector does your company or work focus on?</label>
+      <select name="Industry" required>
+        <option value="">Select an option</option>
+        <option>Agriculture & Agribusiness</option>
+        <option>Banking & Finance</option>
+        <option>Education & Training</option>
+        <option>Energy & Utilities</option>
+        <option>Fashion & Beauty</option>
+        <option>Food & Hospitality</option>
+        <option>Health & Wellness</option>
+        <option>Information Technology & Digital Services</option>
+        <option>Manufacturing & Production</option>
+        <option>Media, Marketing & Communications</option>
+        <option>Nonprofit & Social Enterprise</option>
+        <option>Real Estate & Construction</option>
+        <option>Retail & Commerce</option>
+        <option>Transportation & Logistics</option>
+        <option>Other</option>
+      </select>
+
+      <label>What are your expectations for this conference?</label>
+      <textarea name="Expectations"></textarea>
+
+      <label>Any questions or comments for the organizing team?</label>
+      <textarea name="Comments"></textarea>
+
+      <label>Do you understand that this event is free to attend and consent to receiving official updates?</label>
+      <select name="Consent" required>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+  <script>
+    // GOOGLE SHEETS SUBMISSION
+    const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL"; // Replace with your Apps Script Web App URL
+    const form = document.getElementById('jipForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => alert('Registration submitted successfully.'))
+        .catch(error => alert('Error! Please try again.'));
+    });
+  </script>
+
+</body>
+</html>
