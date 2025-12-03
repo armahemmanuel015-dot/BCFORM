@@ -8,7 +8,6 @@
 <style>
 /* Base */
 * { margin:0; padding:0; box-sizing:border-box; }
-/* Body background */
 body { 
   font-family:'Arial', sans-serif; 
   background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
@@ -31,38 +30,31 @@ header {
   border-radius: 15px;
   box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
-
-/* Dark overlay for header image readability */
 header::before {
   content: '';
   position: absolute;
   top:0; left:0;
   width:100%; height:100%;
-  background: rgba(30,30,60,0.55); /* subtle dark purple-blue overlay */
+  background: rgba(30,30,60,0.55);
   z-index: 0;
 }
-
 header img.logo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   z-index: -1;
 }
-
 header h1 {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 2.4rem;
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 3px 3px 20px rgba(0,0,0,0.8); /* stronger shadow */
+  text-shadow: 3px 3px 20px rgba(0,0,0,0.8);
   text-align: center;
 }
 
@@ -72,11 +64,58 @@ header h1 {
   max-width:720px;
   background: rgba(255,255,255,0.95);
   border-radius:20px;
-  padding:40px;
+  padding:50px 40px;
   box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
   backdrop-filter: blur(6px);
 }
+
+/* Floating input styles */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 18px 15px 18px 15px;
+  border-radius: 12px;
+  border: 2px solid #3b82f6;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.95);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 10px rgba(37,99,235,0.4);
+  outline: none;
+}
+.input-group label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1e40af;
+  font-weight: 500;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.95);
+  padding: 0 5px;
+}
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group select:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label,
+.input-group select:not([value=""]) + label {
+  top: -10px;
+  font-size: 0.85rem;
+  color: #1e3a8a;
+}
+textarea { min-height:130px; resize: vertical; }
 
 /* Buttons */
 button {
@@ -133,62 +172,73 @@ footer {
 </header>
 
 <div class="form-container">
-  <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="form-logo" />
-  <h2>Registration Form</h2>
+  <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="form-logo" style="display:block;margin:0 auto 25px auto;width:120px;">
+  <h2 style="text-align:center;margin-bottom:30px;color:#1e3a8a;font-size:2.2rem;">Registration Form</h2>
 
   <form id="jipForm">
-    <label>Full Name</label>
-    <input type="text" name="Full Name" required />
-
-    <label>Email Address</label>
-    <input type="email" name="Email Address" required />
-
-    <label>Phone Number</label>
-    <input type="tel" name="Phone Number" required 
-           pattern="^(?:0|\\+233)[0-9]{9}$" 
-           title="Enter a valid Ghana phone number, e.g., 0541234567 or +233541234567" />
-
-    <label>Name of Organization / Institution / Company</label>
-    <input type="text" name="Organization" required />
-
-    <label>Job Title / Role (Eg: Chief Executive Officer)</label>
-    <input type="text" name="Job Title" required />
-
-    <label>Upload your official portrait</label>
-    <input type="file" name="Portrait" accept="image/*" required />
-
-    <label>Which industry or sector does your company or work focus on?</label>
-    <select name="Industry" required>
-      <option value="">Select an option</option>
-      <option>Agriculture & Agribusiness</option>
-      <option>Banking & Finance</option>
-      <option>Education & Training</option>
-      <option>Energy & Utilities</option>
-      <option>Fashion & Beauty</option>
-      <option>Food & Hospitality</option>
-      <option>Health & Wellness</option>
-      <option>Information Technology & Digital Services</option>
-      <option>Manufacturing & Production</option>
-      <option>Media, Marketing & Communications</option>
-      <option>Nonprofit & Social Enterprise</option>
-      <option>Real Estate & Construction</option>
-      <option>Retail & Commerce</option>
-      <option>Transportation & Logistics</option>
-      <option>Other</option>
-    </select>
-
-    <label>What are your expectations for this conference?</label>
-    <textarea name="Expectations" required></textarea>
-
-    <label>Any questions or comments for the organizing team?</label>
-    <textarea name="Comments" required></textarea>
-
-    <label>Do you understand that this event is free to attend and consent to receiving official updates?</label>
-    <select name="Consent" required>
-      <option value="">Select</option>
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
+    <div class="input-group">
+      <input type="text" name="Full Name" placeholder=" " required />
+      <label>Full Name</label>
+    </div>
+    <div class="input-group">
+      <input type="email" name="Email Address" placeholder=" " required />
+      <label>Email Address</label>
+    </div>
+    <div class="input-group">
+      <input type="tel" name="Phone Number" placeholder=" " required 
+             pattern="^(?:0|\\+233)[0-9]{9}$" 
+             title="Enter a valid Ghana phone number, e.g., 0541234567 or +233541234567" />
+      <label>Phone Number</label>
+    </div>
+    <div class="input-group">
+      <input type="text" name="Organization" placeholder=" " required />
+      <label>Organization / Company</label>
+    </div>
+    <div class="input-group">
+      <input type="text" name="Job Title" placeholder=" " required />
+      <label>Job Title / Role</label>
+    </div>
+    <div class="input-group">
+      <input type="file" name="Portrait" placeholder=" " accept="image/*" required />
+      <label>Upload your official portrait</label>
+    </div>
+    <div class="input-group">
+      <select name="Industry" required>
+        <option value="" disabled selected hidden></option>
+        <option>Agriculture & Agribusiness</option>
+        <option>Banking & Finance</option>
+        <option>Education & Training</option>
+        <option>Energy & Utilities</option>
+        <option>Fashion & Beauty</option>
+        <option>Food & Hospitality</option>
+        <option>Health & Wellness</option>
+        <option>Information Technology & Digital Services</option>
+        <option>Manufacturing & Production</option>
+        <option>Media, Marketing & Communications</option>
+        <option>Nonprofit & Social Enterprise</option>
+        <option>Real Estate & Construction</option>
+        <option>Retail & Commerce</option>
+        <option>Transportation & Logistics</option>
+        <option>Other</option>
+      </select>
+      <label>Industry / Sector</label>
+    </div>
+    <div class="input-group">
+      <textarea name="Expectations" placeholder=" " required></textarea>
+      <label>Expectations</label>
+    </div>
+    <div class="input-group">
+      <textarea name="Comments" placeholder=" " required></textarea>
+      <label>Questions / Comments</label>
+    </div>
+    <div class="input-group">
+      <select name="Consent" required>
+        <option value="" disabled selected hidden></option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <label>Consent to Updates</label>
+    </div>
 
     <button type="submit">Submit Registration</button>
   </form>
