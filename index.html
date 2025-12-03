@@ -1,161 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JIP Conference 2025 Registration Form</title>
-  <link rel="icon" type="image/png" href="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JIP Conference 2025 Registration Form</title>
+<link rel="icon" type="image/png" href="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" />
+<style>
+/* Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  font-family:'Arial', sans-serif; 
+  background: linear-gradient(to right, #3b82f6, #60a5fa);
+  color:#111827; 
+  min-height:100vh; 
+  display:flex; 
+  flex-direction:column;
+  align-items:center; 
+  animation: bgShift 15s ease infinite;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #2563eb, #1d4ed8);
-      color: #111827;
-    }
-    .form-container {
-      max-width: 720px;
-      margin: 50px auto;
-      padding: 40px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .form-container:hover {
-      transform: translateY(-5px);
-    }
-    .form-logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 120px;
-      height: auto;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #2563eb;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-    label {
-      font-weight: bold;
-      color: #1d4ed8;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 2px solid #2563eb;
-      font-size: 1rem;
-      transition: border 0.3s, box-shadow 0.3s;
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: #1d4ed8;
-      box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
-      outline: none;
-    }
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    button {
-      width: 100%;
-      padding: 16px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(to right, #2563eb, #1d4ed8);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-      transition: background 0.3s, transform 0.2s;
-    }
-    button:hover {
-      background: linear-gradient(to right, #1d4ed8, #2563eb);
-      transform: translateY(-3px);
-    }
-  </style>
+/* Header */
+header {
+  width:100%;
+  background: rgba(17,24,39,0.85);
+  padding:20px 0;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  margin-bottom:20px;
+}
+header img.logo {
+  width:80px; height:auto;
+  margin-bottom:10px;
+  animation: bounce 2s infinite;
+}
+header h1 {
+  color:white;
+  font-size:1.8rem;
+  font-family:'Montserrat', sans-serif;
+  animation: slideIn 1s ease forwards;
+}
+
+/* Footer */
+footer {
+  width:100%;
+  background: rgba(17,24,39,0.85);
+  padding:15px 0;
+  text-align:center;
+  color:white;
+  font-size:0.9rem;
+  margin-top:20px;
+  box-shadow:0 -5px 15px rgba(0,0,0,0.2);
+}
+
+/* Form container */
+.form-container {
+  width:100%;
+  max-width:720px;
+  background:white;
+  border-radius:20px;
+  padding:40px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s ease forwards;
+}
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow:0 15px 25px rgba(0,0,0,0.3);
+}
+
+/* Logo inside form */
+.form-logo {
+  display:block;
+  margin:0 auto 25px auto;
+  width:120px;
+  animation: bounce 2s infinite;
+}
+
+/* Heading */
+h2 {
+  text-align:center;
+  margin-bottom:30px;
+  color:#2563eb;
+  font-size:2.2rem;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.2);
+  animation: slideIn 1s ease forwards;
+}
+
+/* Labels & inputs */
+label { font-weight:bold; color:#1e40af; }
+input, textarea, select {
+  width:100%; padding:12px; margin-top:8px; margin-bottom:20px;
+  border-radius:10px; border:2px solid #3b82f6; font-size:1rem;
+  transition:border 0.3s, box-shadow 0.3s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color:#2563eb;
+  box-shadow:0 0 8px rgba(37,99,235,0.4);
+  outline:none;
+}
+textarea { resize:vertical; min-height:120px; }
+
+/* Button */
+button {
+  width:100%; padding:16px; font-size:1.2rem; border:none; border-radius:12px;
+  background: linear-gradient(to right,#3b82f6,#2563eb); color:white;
+  cursor:pointer; box-shadow:0 6px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.3s;
+  animation: popIn 1s ease forwards;
+}
+button:hover {
+  transform: scale(1.05) translateY(-2px);
+  background: linear-gradient(to right,#2563eb,#3b82f6);
+}
+
+/* Animations */
+@keyframes fadeIn { 0% {opacity:0;} 100% {opacity:1;} }
+@keyframes slideIn { 0% {opacity:0; transform:translateY(-20px);} 100% {opacity:1; transform:translateY(0);} }
+@keyframes popIn { 0% {opacity:0; transform:scale(0.8);} 100% {opacity:1; transform:scale(1);} }
+@keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+@keyframes bgShift { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+
+/* Responsive */
+@media(max-width:768px){
+  h2{font-size:1.8rem;}
+  button{padding:14px; font-size:1rem;}
+  .form-logo{width:100px;}
+  header h1{font-size:1.5rem;}
+}
+</style>
 </head>
 <body>
 
-  <div class="form-container">
-    <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="form-logo" />
-    <h2>JIP Business Conference 2025 Registration</h2>
+<header>
+  <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="logo">
+  <h1>JIP Business Conference 2025</h1>
+</header>
 
-    <form id="jipForm">
-      <label>Full Name</label>
-      <input type="text" name="Full Name" required />
+<div class="form-container">
+  <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="form-logo" />
+  <h2>Registration Form</h2>
 
-      <label>Email Address</label>
-      <input type="email" name="Email Address" required />
+  <form id="jipForm">
+    <label>Full Name</label>
+    <input type="text" name="Full Name" required />
 
-      <label>Phone Number</label>
-<input type="tel" name="Phone Number" required 
-       pattern="^(?:0|\\+233)[0-9]{9}$" 
-       title="Enter a valid Ghana phone number, e.g., 0541234567 or +233541234567" />
+    <label>Email Address</label>
+    <input type="email" name="Email Address" required />
 
-      <label>Name of Organization / Institution / Company</label>
-      <input type="text" name="Organization" required />
+    <label>Phone Number</label>
+    <input type="tel" name="Phone Number" required 
+           pattern="^(?:0|\\+233)[0-9]{9}$" 
+           title="Enter a valid Ghana phone number, e.g., 0541234567 or +233541234567" />
 
-      <label>Job Title / Role (Eg: Chief Executive Officer)</label>
-      <input type="text" name="Job Title" required />
+    <label>Name of Organization / Institution / Company</label>
+    <input type="text" name="Organization" required />
 
-      <label>Upload your official portrait</label>
-      <input type="file" name="Portrait" accept="image/*" required />
+    <label>Job Title / Role (Eg: Chief Executive Officer)</label>
+    <input type="text" name="Job Title" required />
 
-      <label>Which industry or sector does your company or work focus on?</label>
-      <select name="Industry" required>
-        <option value="">Select an option</option>
-        <option>Agriculture & Agribusiness</option>
-        <option>Banking & Finance</option>
-        <option>Education & Training</option>
-        <option>Energy & Utilities</option>
-        <option>Fashion & Beauty</option>
-        <option>Food & Hospitality</option>
-        <option>Health & Wellness</option>
-        <option>Information Technology & Digital Services</option>
-        <option>Manufacturing & Production</option>
-        <option>Media, Marketing & Communications</option>
-        <option>Nonprofit & Social Enterprise</option>
-        <option>Real Estate & Construction</option>
-        <option>Retail & Commerce</option>
-        <option>Transportation & Logistics</option>
-        <option>Other</option>
-      </select>
+    <label>Upload your official portrait</label>
+    <input type="file" name="Portrait" accept="image/*" required />
 
-      <label>What are your expectations for this conference?</label>
-      <textarea name="Expectations" required></textarea>
+    <label>Which industry or sector does your company or work focus on?</label>
+    <select name="Industry" required>
+      <option value="">Select an option</option>
+      <option>Agriculture & Agribusiness</option>
+      <option>Banking & Finance</option>
+      <option>Education & Training</option>
+      <option>Energy & Utilities</option>
+      <option>Fashion & Beauty</option>
+      <option>Food & Hospitality</option>
+      <option>Health & Wellness</option>
+      <option>Information Technology & Digital Services</option>
+      <option>Manufacturing & Production</option>
+      <option>Media, Marketing & Communications</option>
+      <option>Nonprofit & Social Enterprise</option>
+      <option>Real Estate & Construction</option>
+      <option>Retail & Commerce</option>
+      <option>Transportation & Logistics</option>
+      <option>Other</option>
+    </select>
 
-      <label>Any questions or comments for the organizing team?</label>
-      <textarea name="Comments" required></textarea>
+    <label>What are your expectations for this conference?</label>
+    <textarea name="Expectations" required></textarea>
 
-      <label>Do you understand that this event is free to attend and consent to receiving official updates?</label>
-      <select name="Consent" required>
-        <option value="">Select</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+    <label>Any questions or comments for the organizing team?</label>
+    <textarea name="Comments" required></textarea>
 
-      <button type="submit">Submit Registration</button>
-    </form>
-  </div>
+    <label>Do you understand that this event is free to attend and consent to receiving official updates?</label>
+    <select name="Consent" required>
+      <option value="">Select</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
 
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbw2jpyTnUjsxYIh_i8MXNYLb7BOe6oUq8xd4HnHjSG9UftEoB_fjai9Go2GoaJbCGgT1g/exec";
-    const form = document.getElementById('jipForm');
+    <button type="submit">Submit Registration</button>
+  </form>
+</div>
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+<footer>
+  &copy; 2025 JIP Business Conference | Contact: info@jipconference.com
+</footer>
 
-      const formData = new FormData(form);
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbw2jpyTnUjsxYIh_i8MXNYLb7BOe6oUq8xd4HnHjSG9UftEoB_fjai9Go2GoaJbCGgT1g/exec";
+const form = document.getElementById('jipForm');
 
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => alert('Registration submitted successfully.'))
-        .catch(error => alert('Error! Please try again.'));
-    });
-  </script>
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  fetch(scriptURL, { method:'POST', body:formData })
+    .then(response => alert('Registration submitted successfully.'))
+    .catch(error => alert('Error! Please try again.'));
+});
+</script>
 
 </body>
 </html>
