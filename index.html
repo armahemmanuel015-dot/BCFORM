@@ -4,39 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JIP Conference 2025 Registration Form</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" />
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #2563eb, #1d4ed8);
+      color: #111827;
     }
     .form-container {
       max-width: 720px;
-      margin: 30px auto;
-      padding: 25px;
+      margin: 50px auto;
+      padding: 40px;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .form-container:hover {
+      transform: translateY(-5px);
+    }
+    .form-logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 120px;
+      height: auto;
     }
     h2 {
       text-align: center;
-      margin-bottom: 20px;
-      color: #111827;
+      margin-bottom: 30px;
+      color: #2563eb;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
     label {
       font-weight: bold;
-      color: #111827;
+      color: #1d4ed8;
     }
     input, textarea, select {
       width: 100%;
       padding: 12px;
       margin-top: 8px;
       margin-bottom: 20px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      border-radius: 10px;
+      border: 2px solid #2563eb;
       font-size: 1rem;
-      background: #f9fafb;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #1d4ed8;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+      outline: none;
     }
     textarea {
       resize: vertical;
@@ -44,22 +62,26 @@
     }
     button {
       width: 100%;
-      padding: 14px;
-      font-size: 1.1rem;
+      padding: 16px;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 8px;
-      background: #111827;
+      border-radius: 10px;
+      background: linear-gradient(to right, #2563eb, #1d4ed8);
       color: white;
       cursor: pointer;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.2s;
     }
     button:hover {
-      background: #1f2937;
+      background: linear-gradient(to right, #1d4ed8, #2563eb);
+      transform: translateY(-3px);
     }
   </style>
 </head>
 <body>
 
   <div class="form-container">
+    <img src="https://i.ibb.co/XZ65wtcX/Jewels-background-removed.png" alt="JIP Logo" class="form-logo" />
     <h2>JIP Business Conference 2025 Registration</h2>
 
     <form id="jipForm">
@@ -70,13 +92,15 @@
       <input type="email" name="Email Address" required />
 
       <label>Phone Number</label>
-      <input type="tel" name="Phone Number" required />
+<input type="tel" name="Phone Number" required 
+       pattern="^(?:0|\\+233)[0-9]{9}$" 
+       title="Enter a valid Ghana phone number, e.g., 0541234567 or +233541234567" />
 
       <label>Name of Organization / Institution / Company</label>
-      <input type="text" name="Organization" />
+      <input type="text" name="Organization" required />
 
       <label>Job Title / Role (Eg: Chief Executive Officer)</label>
-      <input type="text" name="Job Title" />
+      <input type="text" name="Job Title" required />
 
       <label>Upload your official portrait</label>
       <input type="file" name="Portrait" accept="image/*" required />
@@ -102,10 +126,10 @@
       </select>
 
       <label>What are your expectations for this conference?</label>
-      <textarea name="Expectations"></textarea>
+      <textarea name="Expectations" required></textarea>
 
       <label>Any questions or comments for the organizing team?</label>
-      <textarea name="Comments"></textarea>
+      <textarea name="Comments" required></textarea>
 
       <label>Do you understand that this event is free to attend and consent to receiving official updates?</label>
       <select name="Consent" required>
@@ -119,8 +143,7 @@
   </div>
 
   <script>
-    // GOOGLE SHEETS SUBMISSION
-    const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL"; // Replace with your Apps Script Web App URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbw2jpyTnUjsxYIh_i8MXNYLb7BOe6oUq8xd4HnHjSG9UftEoB_fjai9Go2GoaJbCGgT1g/exec";
     const form = document.getElementById('jipForm');
 
     form.addEventListener('submit', e => {
